@@ -41,17 +41,17 @@ public class Main {
     public static String[] timeOfAddressUtil(AddressUtil addressUtil) {
         String[] arrays = new String[16];
         arrays[0] = "AddressUtil";
-        arrays[1] = "98348647";
+        arrays[1] = String.valueOf(98348647 / 1000F / 1000F);
 
         long startTime = System.nanoTime();
         addressUtil.getAddress("130000", "130800", "130828", "-");
         addressUtil.getAddressSelect("130000", "130800", "130828");
-        arrays[2] = String.valueOf(System.nanoTime() - startTime);
+        arrays[2] = String.valueOf((System.nanoTime() - startTime) / 1000F / 1000F);
 
 
         startTime = System.nanoTime();
         addressUtil.getAddressByPosition(24, 3, 0, null);
-        arrays[3] = String.valueOf(System.nanoTime() - startTime);
+        arrays[3] = String.valueOf((System.nanoTime() - startTime) / 1000F / 1000F);
 
         return arrays;
     }
@@ -111,15 +111,15 @@ public class Main {
     public static String[] timeOfRegionUtil(RegionUtil regionUtil) {
         String[] arrays = new String[16];
         arrays[0] = "RegionUtil";
-        arrays[1] = "97961942";
+        arrays[1] = String.valueOf(97961942 / 1000F / 1000F);
 
         long startTime = System.nanoTime();
         regionUtil.getAddressById(130000, 130800, 130828);
-        arrays[2] = String.valueOf(System.nanoTime() - startTime);
+        arrays[2] = String.valueOf((System.nanoTime() - startTime) / 1000F / 1000F);
 
         startTime = System.nanoTime();
         regionUtil.getAddressByPosition(24, 3, 0, null);
-        arrays[3] = String.valueOf(System.nanoTime() - startTime);
+        arrays[3] = String.valueOf((System.nanoTime() - startTime) / 1000F / 1000F);
 
         return arrays;
     }
