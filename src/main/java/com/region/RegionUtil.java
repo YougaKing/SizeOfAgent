@@ -31,28 +31,24 @@ public class RegionUtil {
 
         if (mProvinceModelList == null) return;
 
-        Province province;
-        City city;
-        Area area;
-        for (int i = 0; i < mProvinceModelList.size(); i++) {
-            province = mProvinceModelList.get(i);
+        ArrayList<ArrayList<String>> areaListList;
+        ArrayList<String> areaList;
+        for (Province province : mProvinceModelList) {
             mProvinceList.add(province.pname);
 
             ArrayList<String> cityList = new ArrayList<>();
             mCityList.add(cityList);
 
-            ArrayList<ArrayList<String>> areaListList = new ArrayList<>();
+            areaListList = new ArrayList<>();
             mAreaList.add(areaListList);
 
-            for (int j = 0; j < province.getCitylist().size(); j++) {
-                city = province.getCitylist().get(j);
+            for (City city : province.getCitylist()) {
                 cityList.add(city.cname);
 
-                ArrayList<String> areaList = new ArrayList<>();
+                areaList = new ArrayList<>();
                 areaListList.add(areaList);
 
-                for (int k = 0; k < city.getAreaList().size(); k++) {
-                    area = city.getAreaList().get(k);
+                for (Area area : city.getAreaList()) {
                     areaList.add(area.aname);
                 }
             }
